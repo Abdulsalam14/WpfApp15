@@ -1,0 +1,35 @@
+﻿<Window x:Class="WpfApp15.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp15"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Name="grid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="3*" Name="Row1" ></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*" ></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0"  Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Slider Grid.Row="0"  Name="wid" Value="0" Minimum="0" Maximum="{Binding ElementName=grid, Path=ActualWidth}" ></Slider>
+                <Slider Grid.Row="1"  Name="heg"  Minimum="0"  Value="0" Maximum="{Binding ElementName=grid2, Path=ActualHeight}" ></Slider>
+            </Grid>
+            <CheckBox Height="20" Width="20" Grid.Column="1" VerticalAlignment="Center"  Click="chckbx_Click" Name="chckbx"></CheckBox>
+        </Grid>
+        <Grid Name="grid2" Grid.Row="1">
+            <Image Stretch="Fill" Name="img" Width="{Binding ElementName=wid, Path=Value}" Height="{Binding ElementName=heg,Path=Value}" Source="https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg"></Image>
+        </Grid>
+
+    </Grid>
+</Window>
